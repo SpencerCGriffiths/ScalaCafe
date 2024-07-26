@@ -71,7 +71,30 @@ method updatesloyaltyCard(customer: Customer) {
 
 CheckList: 
 
+Menus: 
 Testing Menu Creation
 Menu Creation 
 Testing Premium Menu Creation and Methods
 Premium Menu Creation and Methods
+
+Bill:
+// Bill object
+// bill has method Calculate Bill- (List of items) returning list of items, optional service charge
+Make a case class bill that takes a list of items.
+You can then create bill by calling the case class with the items ordered
+I can make a companion object Bill with Methods: 
+- listItems - lists all items in this bill 
+- Service Charge: 
+  - made of smaller methods that check the traits of each item and add the %
+  - add custom service charge
+** Later can add loyalty scheme logic in to bill 
+  **NOTE:**
+  - We could have case class bill(list of items) 
+  - BUT we would then need the list of items when the bill is created 
+- OR 
+  - We have case class bill()
+  - A bill is made at the start of the meal i.e. val newTableBill = bill() 
+  - When items are ordered we call newTableBill.addItemToBill 
+  - If we want to remove item we call newTableBill.removeItemFromBill
+  - This keeps the mutable list inside of the bill object rather than wherever bill is being changed
+  - i.e. it keeps the items more modular and removed
