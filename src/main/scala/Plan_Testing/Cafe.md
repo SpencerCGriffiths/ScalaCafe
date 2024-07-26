@@ -55,6 +55,7 @@ Loyalty scheme:
 // do they have a loyalty card
 // customer optional parameters drink cards etc. 
 
+
 case class Customer (default params, loyaltyCard: Option[Boolean])
 
 object Customer { 
@@ -65,3 +66,12 @@ method updatesloyaltyCard(customer: Customer) {
 }
 
 }
+
+
+
+CheckList: 
+
+Testing Menu Creation
+Menu Creation 
+Testing Premium Menu Creation and Methods
+Premium Menu Creation and Methods
