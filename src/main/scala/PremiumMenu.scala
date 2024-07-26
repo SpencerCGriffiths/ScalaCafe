@@ -1,6 +1,6 @@
 import scala.collection.mutable.ListBuffer
 
-object PremiumMenu extends App{
+object PremiumMenu {
   val specials: ListBuffer[MenuItem] = ListBuffer()
 
   def addSpecial(item: MenuItem): Unit = {
@@ -9,18 +9,24 @@ object PremiumMenu extends App{
 
 
   def removeSpecial(item: MenuItem): Unit = {
-    specials -= item
+    if(specials.contains(item)) specials -= item
+    // else throw custom error here
   }
 
   def getSpecials: String = {
-    specials.zipWithIndex.map {
-      case (item, index) if index == specials.size - 1 => s"${item.name}: ${item.price}"
-      case (item, _) => s"${item.name}: ${item.price}, "
-    }.mkString
+    if(specials.nonEmpty) {
+      specials.zipWithIndex.map {
+        case (item, index) if index == specials.size - 1 => s"${item.name}: ${item.price}"
+        case (item, _) => s"${item.name}: ${item.price}, "
+      }.mkString
+    } else {
+      "There are no specials today"
+    }
+    // could also else and throw error here
   }
 
   def removeAllSpecials(): Unit = {
-    if (specials.nonEmpty) specials.foreach(item => specials -= item)
+    if (specials.nonEmpty) specials.clear()
   }
 
 }
