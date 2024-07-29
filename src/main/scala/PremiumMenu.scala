@@ -7,7 +7,6 @@ object PremiumMenu {
     specials += item
   }
 
-
   def removeSpecial(item: MenuItem): Unit = {
     if(specials.contains(item)) specials -= item
     // else throw custom error here
